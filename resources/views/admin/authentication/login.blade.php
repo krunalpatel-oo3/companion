@@ -8,6 +8,9 @@
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
     <link href="{{asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/css/admin/custom.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body id="kt_body" class="app-blank bgi-size-cover bgi-attachment-fixed bgi-position-center bgi-no-repeat">
     <div class="d-flex flex-column flex-root" id="kt_app_root">
@@ -28,7 +31,8 @@
         <div class="d-flex flex-column-fluid flex-lg-row-auto justify-content-center justify-content-lg-end p-12 p-lg-20">
           <div class="bg-body d-flex flex-column align-items-stretch flex-center rounded-4 w-md-600px p-20">
             <div class="d-flex flex-center flex-column flex-column-fluid px-lg-10 pb-15 pb-lg-20">
-              <form class="form w-100" novalidate="novalidate" id="sign_in_form" action="{{route('admin.auth')}}">
+              <form class="form w-100" method="post" id="sign_in_form" action="{{route('admin.auth')}}">
+                @csrf
                 <div class="text-center mb-11">
                   <h1 class="text-dark fw-bolder mb-3"> Sign In </h1>
                 </div>
