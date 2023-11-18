@@ -30,7 +30,7 @@
             <div class="d-flex flex-center flex-column flex-column-fluid px-lg-10 pb-15 pb-lg-20">
               <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="/metronic8/demo1/../demo1/index.html" action="#">
                 <div class="text-center mb-11">
-                  <h1 class="text-dark fw-bolder mb-3"> Sign In KRP CI CD test TESTTTT </h1>
+                  <h1 class="text-dark fw-bolder mb-3"> Sign In KRP CI CD test AGAIN </h1>
                 </div>
                 <div class="fv-row mb-8">
                   <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent">
