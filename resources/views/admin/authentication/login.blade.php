@@ -28,9 +28,9 @@
         <div class="d-flex flex-column-fluid flex-lg-row-auto justify-content-center justify-content-lg-end p-12 p-lg-20">
           <div class="bg-body d-flex flex-column align-items-stretch flex-center rounded-4 w-md-600px p-20">
             <div class="d-flex flex-center flex-column flex-column-fluid px-lg-10 pb-15 pb-lg-20">
-              <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="/metronic8/demo1/../demo1/index.html" action="#">
+              <form class="form w-100" novalidate="novalidate" id="sign_in_form" action="{{route('admin.auth')}}">
                 <div class="text-center mb-11">
-                  <h1 class="text-dark fw-bolder mb-3"> Sign In KRP CI CD test AGAIN 40 </h1>
+                  <h1 class="text-dark fw-bolder mb-3"> Sign In </h1>
                 </div>
                 <div class="fv-row mb-8">
                   <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent">
@@ -45,8 +45,6 @@
                 <div class="d-grid mb-10">
                   <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
                     <span class="indicator-label"> Sign In</span>
-                    <span class="indicator-progress"> Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                    </span>
                   </button>
                 </div>
               </form>
@@ -59,7 +57,10 @@
       var hostUrl = "/metronic8/demo1/assets/";
     </script>
     <script src="{{asset('assets/plugins/global/plugins.bundle.js') }}"></script>
-    <script src="{{asset('assets/js/scripts.bundle.js') }}"></script>
-    <script src="{{asset('assets/js/custom/authentication/sign-in/general.js') }}"></script>
+    <!-- <script src="{{asset('assets/js/scripts.bundle.js') }}"></script> -->
+    <!-- <script src="{{asset('assets/js/custom/authentication/sign-in/general.js') }}"></script> -->
+      
+    <script src="{{asset('assets/js/validate/jquery.validate.min.js') }}"></script>
+    <script src="{{asset('assets/js/admin/authentication.js') }}"></script>
   </body>
 </html>

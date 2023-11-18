@@ -22,6 +22,9 @@ use App\Http\Controllers\admin\Authentication;
 Route::get('/', [Home::class, 'index'], 'index');
 Route::get('/home', [Home::class, 'index'], 'index')->name('home');
 
+//!! ************* Admin ************* !!
 Route::prefix('admin')->group(function () {
     Route::get('/', [Authentication::class, 'index']);
+    //!!Authentication.
+    Route::post('admin/auth', [Authentication::class, 'auth'])->name('admin.auth');
 });
