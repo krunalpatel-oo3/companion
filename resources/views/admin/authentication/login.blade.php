@@ -65,6 +65,9 @@
     <!-- <script src="{{asset('assets/js/custom/authentication/sign-in/general.js') }}"></script> -->
       
     <script src="{{asset('assets/js/validate/jquery.validate.min.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="{{asset('assets/js/admin/custom.js') }}"></script>
     <script src="{{asset('assets/js/admin/authentication.js') }}"></script>
   </body>
 </html>

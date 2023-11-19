@@ -4,7 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use Hash;
+use Auth;
 class Authentication extends Controller
 {
     /**
@@ -14,31 +16,24 @@ class Authentication extends Controller
         return view('admin/authentication/login');
     }
 
+    /**
+     *@uses function to authentication user. 
+     */
     public function auth(Request $request){
-        // return $request->post();
         $email      = $request->email; 
         $password   = $request->password; 
-        dd($request->all());
-        // $result = Admin::where(['email' => $email, 'password' => $password])->get();
-        $result = Admin::where(['email' => $email])->first();
+        $result = User::where(['email' => $email])->first();
         if($result){
-
-            if(Hash::check($password, $result['password'])){
+            $credentials = $request->only('email', 'password');
+            if (Auth::attempt($credentials)) {
                 $request->session()->put('ADMIN_LOGIN', true);
-                // $request->session()->put('ADMIN_ID', $result['id']);
-
-                return redirect('admin/dashboard');
+                $response = ['status' => true, 'message' => 'You have been successfully logged in.']; 
             }else{
-                $request->session()->flash('email', $email);
-                $request->session()->flash('error', 'Please enter correct password');
-                return redirect('admin');
+                $response = ['status' => false, 'message' => 'Please enter correct password.'];
             }
         }else{
-            $request->session()->flash('email', $email);
-            $request->session()->flash('error', 'Please enter valid login detail');
-            return redirect('admin');
-
+            $response = ['status' => false, 'message' => 'Please enter a valid email.'];
         }
-        // dd($result);
+        return response()->json($response);
     }
 }

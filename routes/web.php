@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\front\Home;
-use App\Http\Controllers\admin\Authentication;
+use App\Http\Controllers\admin\{Authentication, Dashboard};
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +23,9 @@ Route::get('/', [Home::class, 'index'], 'index');
 Route::get('/home', [Home::class, 'index'], 'index')->name('home');
 
 //!! ************* Admin ************* !!
-Route::prefix('admin')->group(function () {
-    Route::get('/', [Authentication::class, 'index']);
+Route::get('admin', [Authentication::class, 'index'])->name('admin.login');
+Route::post('admin/auth', [Authentication::class, 'auth'])->name('admin.auth');
+Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     //!!Authentication.
-    Route::post('admin/auth', [Authentication::class, 'auth'])->name('admin.auth');
+    Route::get('/home', [Dashboard::class, 'index'])->name('admin.dashboard');
 });
