@@ -23,8 +23,9 @@ Route::get('/', [Home::class, 'index'], 'index');
 Route::get('/home', [Home::class, 'index'], 'index')->name('home');
 
 //!! ************* Admin ************* !!
-Route::get('admin', [Authentication::class, 'index'])->name('admin.login');
+Route::get('admin', [Authentication::class, 'index'])->name('admin.login')->middleware('guest');
 Route::post('admin/auth', [Authentication::class, 'auth'])->name('admin.auth');
+
 Route::prefix('admin')->middleware('IsAdmin')->group(function () {
     //!!Authentication.
     Route::get('/home', [Dashboard::class, 'index'])->name('admin.dashboard');
