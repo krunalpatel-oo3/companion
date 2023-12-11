@@ -36,4 +36,9 @@ class Authentication extends Controller
         }
         return response()->json($response);
     }
+
+    public function test_cron(){
+        \DB::insert('insert into test (name) values ("krunal cron")');
+        echo 'Test';
+    }
 }
