@@ -27,6 +27,10 @@
       </script>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- PWA  -->
+      <meta name="theme-color" content="#6777ef"/>
+      <link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
+      <link rel="manifest" href="{{ asset('/manifest.json') }}">
       @stack('css')
 </head>
       <body class='index home feed-view' id='mainContent'>
@@ -83,5 +87,15 @@
             @stack('js')
 
             <script type="text/javascript" src="{{ asset('assets/static/v1/widgets/2789723018-widgets.js') }}"></script>
+            <script src="{{asset('assets/js/custom/widgets.js')}}"></script>
+
+            <script src="{{ asset('/sw.js') }}"></script>
+            <script>
+                  if (!navigator.serviceWorker.controller) {
+                        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                        console.log("Service worker has been registered for scope: " + reg.scope);
+                        });
+                  }
+            </script>
       </body>
 </html>
