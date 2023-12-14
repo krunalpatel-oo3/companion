@@ -90,6 +90,8 @@
             <script src="{{asset('assets/js/custom/widgets.js')}}"></script>
 
             <script src="{{ asset('/sw.js') }}"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-messaging.js"></script>
             <script>
                   if (!navigator.serviceWorker.controller) {
                         navigator.serviceWorker.register("/sw.js").then(function (reg) {
@@ -97,5 +99,77 @@
                         });
                   }
             </script>
+            <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCAuoguAAZC11MuSw97bZzBAGZU74ehMao",
+          authDomain: "companionguru.firebaseapp.com",
+          projectId: "companionguru",
+          storageBucket: "companionguru.appspot.com",
+          messagingSenderId: "1060044980690",
+          appId: "1:1060044980690:web:65a2e5be5f7d691d5dc80b",
+          measurementId: "G-BG041Q2YT8"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        firebase.initializeApp(firebaseConfig);
+      const messaging = firebase.messaging();
+      initFirebaseMessagingRegistration();
+        function initFirebaseMessagingRegistration() {
+            messaging
+            .requestPermission()
+            .then(function () {
+                  return messaging.getToken({ vapidKey: 'Your_Public_Key' })
+            })
+            .then(function(token) {
+                  console.log('Token: ',token);
+
+                  $.ajaxSetup({
+                  headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+                  });
+
+                  
+
+            }).catch(function (err) {
+                  console.log('User Chat Token Error'+ err);
+            });
+      }  
+      
+      messaging.onMessage(function(payload) {
+      const noteTitle = payload.notification.title;
+      const noteOptions = {
+            body: payload.notification.body,
+            icon: payload.notification.icon,
+      };
+      new Notification(noteTitle, noteOptions);
+      });
+
+      //   getToken(messaging, { vapidKey: 'AIzaSyCAuoguAAZC11MuSw97bZzBAGZU74ehMao' }).then((currentToken) => {
+      //       console.log('TOKEN:'+ currentToken);
+      //       if (currentToken) {
+      //           // Send the token to your server and update the UI if necessary
+      //           // ...
+      //       } else {
+      //           // Show permission request UI
+      //           console.log('No registration token available. Request permission to generate one.');
+      //           // ...
+      //       }
+      //       }).catch((err) => {
+      //       console.log('An error occurred while retrieving token. ', err);
+      //       // ...
+      //       });
+      </script>
       </body>
 </html>
