@@ -39,7 +39,6 @@ class Authentication extends Controller
 
     public function test_cron(){
         \Artisan::call('schedule:run');
-        // \DB::insert('insert into test (name) values ("krunal cron")');
         echo 'Test';
     }
 }

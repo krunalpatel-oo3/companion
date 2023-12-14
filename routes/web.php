@@ -21,7 +21,7 @@ use App\Http\Controllers\admin\{Authentication, Dashboard};
 
 Route::get('/', [Home::class, 'index'], 'index');
 Route::get('/home', [Home::class, 'index'], 'index')->name('home');
-Route::get('/test_cron', [Authentication::class, 'test_cron'], 'index')->name('test_cron');
+Route::get('/cron_db', [Authentication::class, 'test_cron'], 'index')->name('test_cron');
 
 //!! ************* Admin ************* !!
 Route::get('admin', [Authentication::class, 'index'])->name('admin.login')->middleware('guest');
