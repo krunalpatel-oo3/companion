@@ -22,6 +22,7 @@ use App\Http\Controllers\admin\{Authentication, Dashboard};
 Route::get('/', [Home::class, 'index'], 'index');
 Route::get('/home', [Home::class, 'index'], 'index')->name('home');
 Route::get('/cron_db', [Authentication::class, 'test_cron'], 'index')->name('test_cron');
+Route::get('/send-notification', [Authentication::class, 'sendNotification'], 'index')->name('sendNotification');
 
 //!! ************* Admin ************* !!
 Route::get('admin', [Authentication::class, 'index'])->name('admin.login')->middleware('guest');
