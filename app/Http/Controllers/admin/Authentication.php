@@ -50,7 +50,7 @@ class Authentication extends Controller
         // // $FcmToken = User::whereNotNull('device_token')->pluck('device_token')->all();
             
         $serverKey = 'AAAA9s-awdI:APA91bFd491JgFr4dn12HW2lQJI2s92rxGQb7EfQAfPxT2qzK27KQScqF-WyL5UY2p1IL8ngupwkiCXX9wsJgZNk5awjcsdxtQYO36fdGXX4T537o9Z-cAW6oXEGE4F9UW5hTnUAHHqI'; // ADD SERVER KEY HERE PROVIDED BY FCM
-        $FcmToken = ['enb-PIM7USBIqvXAjxMQ-N:APA91bEG1eWO2aHDHIvXEvlD_K-spalTNlBuc6GygqlRBe5o-GBLpufGrTSKa7KDeMo2XJOVFEupi48UBbCZOCcW3MwvVe9eC7ZtBJS_EEcz-B-6xoDWkvKuSg4OjZVYxVY-9eF1pMkR'];
+        $FcmToken = ['fb3n0ZPG61dq9rSXBdtaSg:APA91bFlaElCfVfWlQ0Q-mt02Qk97NPgrBeY-w8DGsNzYHXLOH9pTCDFPRgUcSOiH8ctCAWuu46dt3c1BOlMiXT11B585dYA2M2ihGh_dSpVlcK09_-fIPCPh7YCqNRFLJsKo_PhLvI3'];
         
         // $result = Larafirebase::withTitle('YSJHA')
         //     ->withBody('TEWSTVBS ABS AHGSBH')
