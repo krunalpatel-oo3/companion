@@ -90,8 +90,8 @@
             <script src="{{asset('assets/js/custom/widgets.js')}}"></script>
 
             <script src="{{ asset('/sw.js') }}"></script>
-            // <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
-            // <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-messaging.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-messaging.js"></script>
             <script>
                   if (!navigator.serviceWorker.controller) {
                         navigator.serviceWorker.register("/sw.js").then(function (reg) {
@@ -111,14 +111,10 @@
                   appId: "1:1060044980690:web:65a2e5be5f7d691d5dc80b",
                   measurementId: "G-BG041Q2YT8"
             };
-      
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
 
             firebase.initializeApp(firebaseConfig);
             const messaging = firebase.messaging();
-            initFirebaseMessagingRegistration();
+            
             function initFirebaseMessagingRegistration() {
                   messaging
                   .requestPermission()
@@ -138,13 +134,10 @@
                   });
             }  
       
-            messaging.onMessage(function(payload) {
-            const noteTitle = payload.notification.title;
-            const noteOptions = {
-                  body: payload.notification.body,
-                  icon: payload.notification.icon,
-            };
-            new Notification(noteTitle, noteOptions);
+            initFirebaseMessagingRegistration();
+            messaging.onMessage(function({data:{body,title}}){
+                  console.log('DATA::', body);
+                  new Notification(title, {body});
             });
       </script>
       </body>
