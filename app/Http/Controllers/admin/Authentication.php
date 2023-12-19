@@ -45,6 +45,7 @@ class Authentication extends Controller
     }
 
     public function sendNotification(Request $request){
+        \Artisan::call('optimize:clear');
         // $url = 'https://fcm.googleapis.com/fcm/send';
 
         // // $FcmToken = User::whereNotNull('device_token')->pluck('device_token')->all();
@@ -56,6 +57,8 @@ class Authentication extends Controller
             ->withBody('This is for the testing.')
             ->sendMessage($FcmToken);
         // FCM response
+
+        
         dd($result);    
     }
 }
