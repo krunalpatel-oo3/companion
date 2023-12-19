@@ -21,7 +21,7 @@ firebase.initializeApp({
 const messaging = firebase.messaging();
 messaging.setBackgroundMessageHandler(function(payload) {
     console.log("Message received.", payload);
-    const title = "Hello world is awesome";
+    const title = "Hello world is awesome ww test";
     const options = {
         body: "Your notificaiton message .",
         icon: "/firebase-logo.png",

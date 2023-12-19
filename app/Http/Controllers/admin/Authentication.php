@@ -51,7 +51,8 @@ class Authentication extends Controller
         // // $FcmToken = User::whereNotNull('device_token')->pluck('device_token')->all();
             
         $serverKey = 'AAAA9s-awdI:APA91bFd491JgFr4dn12HW2lQJI2s92rxGQb7EfQAfPxT2qzK27KQScqF-WyL5UY2p1IL8ngupwkiCXX9wsJgZNk5awjcsdxtQYO36fdGXX4T537o9Z-cAW6oXEGE4F9UW5hTnUAHHqI'; // ADD SERVER KEY HERE PROVIDED BY FCM
-        $FcmToken = 'enb-PIM7USBIqvXAjxMQ-N:APA91bGMe-YuFPYLNuZ8fs-uetIzx9abi9W3HlVZ-R7uS6Nk-Rh492_pZ6GC1HIt2qNgZJgxh1QXet66By9jPPxNPyW6d3LPdJsJo7CDbs1uvmnpypUtDOXHTuIxOaBOctWryrMqONg2';
+        //$FcmToken = 'enb-PIM7USBIqvXAjxMQ-N:APA91bGMe-YuFPYLNuZ8fs-uetIzx9abi9W3HlVZ-R7uS6Nk-Rh492_pZ6GC1HIt2qNgZJgxh1QXet66By9jPPxNPyW6d3LPdJsJo7CDbs1uvmnpypUtDOXHTuIxOaBOctWryrMqONg2';
+        $FcmToken = 'fb3n0ZPG61dq9rSXBdtaSg:APA91bHWReZBY2WwQ3K8N0O0b3Yh9W7DDP_D9QA1znfHsDJ4DFJ4pKSWNkyCDpTn1HzaOwswrC184Ih9_TdZqYZ-HiilzIZ87k9bs2B16-ZRsAt7DTTj5OLz2gp7XsyX6yIlY75mA403';
         
         $result = Larafirebase::withTitle('Krunal Notification Again.')
             ->withBody('This is for the testing.')
