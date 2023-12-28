@@ -1,0 +1,3 @@
+label.error{color: red !important;}
+.error-msg{color: red;}
+.btn-disable-process{opacity: 0.5;pointer-events: none;}

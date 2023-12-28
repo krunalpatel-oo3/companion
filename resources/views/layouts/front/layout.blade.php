@@ -5,6 +5,7 @@
       <title>{{ $title }}</title> 
       <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
       <meta content='' name='description'>
+      <meta name="csrf-token" content="{{ csrf_token() }}" />
       <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/theme/logo/favicon.png') }}">
       <link href='{{ asset("assets/ajax/libs/font-awesome/6.1.1/css/brands.min.css") }}' rel='stylesheet'>
       <!-- Template Style CSS -->
@@ -27,10 +28,14 @@
       </script>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+      <script src='{{ asset("assets/ajax/libs/jquery/3.5.1/jquery.min.js") }} ' type='text/javascript'></script>
       <!-- PWA  -->
       <meta name="theme-color" content="#6777ef"/>
       <link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
       <link rel="manifest" href="{{ asset('/manifest.json') }}">
+      <link rel="stylesheet" href="{{ asset('assets/front/css/custom.css') }}">
+      <!-- toastr-->
+      <link rel="stylesheet" href="{{asset('assets/js/toastr/toastr.min.css')}}" />
       @stack('css')
 </head>
       <body class='index home feed-view' id='mainContent'>
@@ -68,7 +73,6 @@
             <div class='overlay'></div>
             <div class='backTop'></div>
             <!--Piki Templates Hosted Plugins -->
-            <script src='{{ asset("assets/ajax/libs/jquery/3.5.1/jquery.min.js") }} ' type='text/javascript'></script>
             <script type='text/javascript'>var pikiMessages ={showMore:"Show more",noTitle:"No title",noResults:"No results found",}</script>
             <script type='text/javascript'>
             <!-- Menuiki jQuery Plugin V2.0.0 | https://github.com/pikitemplates/scripts -->
@@ -88,10 +92,10 @@
 
             <script type="text/javascript" src="{{ asset('assets/static/v1/widgets/2789723018-widgets.js') }}"></script>
             <script src="{{asset('assets/js/custom/widgets.js')}}"></script>
+            <!-- toastr-->
+            <script src="{{asset('assets/js/toastr/toastr.min.js')}}"></script>
 
             <script src="{{ asset('/sw.js') }}"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-messaging.js"></script>
             <script>
                   if (!navigator.serviceWorker.controller) {
                         navigator.serviceWorker.register("/sw.js").then(function (reg) {
@@ -99,46 +103,5 @@
                         });
                   }
             </script>
-            <script type="module">
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
-            const firebaseConfig = {
-                  apiKey: "AIzaSyCAuoguAAZC11MuSw97bZzBAGZU74ehMao",
-                  authDomain: "companionguru.firebaseapp.com",
-                  projectId: "companionguru",
-                  storageBucket: "companionguru.appspot.com",
-                  messagingSenderId: "1060044980690",
-                  appId: "1:1060044980690:web:65a2e5be5f7d691d5dc80b",
-                  measurementId: "G-BG041Q2YT8"
-            };
-
-            firebase.initializeApp(firebaseConfig);
-            const messaging = firebase.messaging();
-            
-            function initFirebaseMessagingRegistration() {
-                  messaging
-                  .requestPermission()
-                  .then(function () {
-                        return messaging.getToken()
-                  })
-                  .then(function(token) {
-                        console.log('Token: ',token);
-                        $.ajaxSetup({
-                              headers: {
-                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                              }
-                        });           
-
-                  }).catch(function (err) {
-                        console.log('User Chat Token Error'+ err);
-                  });
-            }  
-      
-            initFirebaseMessagingRegistration();
-            messaging.onMessage(function({data:{body,title}}){
-                  console.log('DATA::', body);
-                  new Notification(title, {body});
-            });
-      </script>
       </body>
 </html>

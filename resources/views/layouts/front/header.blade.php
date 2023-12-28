@@ -18,8 +18,9 @@
                         <div class='widget LinkList' data-version='2' id='LinkList12'>
                            <ul id='koOiIliI-flexmList' role='tablist'>
                               <li itemprop='name' role='tab'><a href='{{ route("home") }}' itemprop='url'>Home</a></li>
+                              <li itemprop='name' role='tab'><a href='{{ route("notification") }}' itemprop='url'>Notification Aleart</a></li>
                               <!-- <li itemprop='name' role='tab'><a href='megamenu/recent' itemprop='url'>Mega Menu</a></li> -->
-                              <li itemprop='name' role='tab'><a href='#' itemprop='url'>Categories</a></li>
+                              <li itemprop='name' role='tab' class="d-none"><a href='#' itemprop='url'>Categories</a></li>
                               <li itemprop='name' role='tab'><a href='#' itemprop='url'>_Featured Posts</a></li>
                               <li itemprop='name' role='tab'><a href='#' itemprop='url'>_Post ShortCodes</a></li>
                               <li itemprop='name' role='tab'><a href='2020/01/the-difference-between-winning-and.html' itemprop='url'>__Left Sidebar</a></li>

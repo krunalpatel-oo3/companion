@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use DB;
-
+use App\Models\front\Notification;
 class NotificationSilentMobile extends Command
 {
     /**
@@ -26,9 +26,9 @@ class NotificationSilentMobile extends Command
      */
     public function handle()
     {
-        $data = array('data' => 'Cron Test');
-        // DB::table('test')
+        $notifications = Notification::get();
+        dd($notifications);
         DB::insert('insert into test (name) values ("krunal cron")');
-        echo 'Test';
+        echo 'Testss';
     }
 }
