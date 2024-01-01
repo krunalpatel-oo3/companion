@@ -5,6 +5,8 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use DB;
 use App\Models\front\Notification;
+use Kutia\Larafirebase\Facades\Larafirebase;
+
 class NotificationSilentMobile extends Command
 {
     /**
@@ -26,9 +28,14 @@ class NotificationSilentMobile extends Command
      */
     public function handle()
     {
-        $notifications = Notification::get();
-        dd($notifications);
-        DB::insert('insert into test (name) values ("krunal cron")');
-        echo 'Testss';
+        $newTime = strtotime('-15 minutes');
+        
+        $notifications = Notification::select('title','description','description','fcm_token')->where('time', '>',  date('H:i', $newTime))->where('time', '<', date('H:i'))->get();
+        foreach ($notifications as $key => $notification) {
+            
+            Larafirebase::withTitle($notification->title)
+            ->withBody($notification->description)
+            ->sendMessage($notification->fcm_token);
+        }
     }
 }
