@@ -51,6 +51,7 @@ class Authentication extends Controller
             ->withBody($notification->description)
             ->sendMessage($notification->fcm_token);
         }
+        dd($notifications);
     }
 
     public function sendNotification(Request $request){
