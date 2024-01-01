@@ -39,6 +39,7 @@ class Notification extends Controller
             $notification->save();
             $response = ['status' => true, 'message' => 'Your notification aleart store successfully.']; 
         } catch (\Throwable $th) {
+            dd($th);
             $response = ['status' => false, 'message' => 'Something went wrong, please try later.'];    
         }
         return response()->json($response);
