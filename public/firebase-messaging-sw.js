@@ -21,9 +21,9 @@ firebase.initializeApp({
 const messaging = firebase.messaging();
 messaging.setBackgroundMessageHandler(function(payload) {
     console.log("Message received.", payload);
-    const title = "Hello world is awesome ww test";
+    const title = payload.data.title;
     const options = {
-        body: "Your notificaiton message .",
+        body: payload.data.body,
         icon: "/firebase-logo.png",
     };
     return self.registration.showNotification(
