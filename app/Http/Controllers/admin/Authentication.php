@@ -41,6 +41,10 @@ class Authentication extends Controller
     }
 
     public function test_cron(){
+        $newTime = strtotime('-15 minutes');
+        // $notifications = Notification::select('title','description','description','fcm_token')->where('time', '>',  date('H:i', $newTime))->where('time', '<', date('H:i'))->get();
+        // $notifications = Notification::select('title','description','description','fcm_token')->whereBetween('times', [ date('H:i', $newTime),  date('H:i')])->get();
+        // dd($notifications);
         \Artisan::call('schedule:run');
     }
 
