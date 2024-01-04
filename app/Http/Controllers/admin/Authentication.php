@@ -53,6 +53,7 @@ class Authentication extends Controller
         // $notifications = Notification::select('title','description','description','fcm_token')->where('time', '>',  date('H:i', $newTime))->where('time', '<', date('H:i'))->get();
         // $notifications = Notification::select('title','description','description','fcm_token')->whereBetween('time', [ date('H:i', $newTime),  date('H:i')])->get();
         // dd($notifications);
+        \Artisan::call('cache:clear');
         \Artisan::call('schedule:run');
     }
 
