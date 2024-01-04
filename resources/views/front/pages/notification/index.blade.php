@@ -34,8 +34,9 @@
 {{-- Validate --}}
 
 <script src="{{ asset('assets/js/validate/jquery.validate.min.js') }}"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
+
+<link rel="stylesheet" href="{{ asset('assets/js/mdtimepicker/mdtimepicker.css') }}">
+<script src="{{ asset('assets/js/mdtimepicker/mdtimepicker.js') }}"></script>
 
 <script src="{{ asset('assets/front/notification.js') }}"></script>
 
@@ -46,13 +47,20 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
     const firebaseConfig = {
-          apiKey: "AIzaSyCAuoguAAZC11MuSw97bZzBAGZU74ehMao",
-          authDomain: "companionguru.firebaseapp.com",
-          projectId: "companionguru",
-          storageBucket: "companionguru.appspot.com",
-          messagingSenderId: "1060044980690",
-          appId: "1:1060044980690:web:65a2e5be5f7d691d5dc80b",
-          measurementId: "G-BG041Q2YT8"
+          apiKey:  "{{ env('FCM_API_KEY') }}",
+          authDomain: "{{ env('FCM_AUTH_DOMAIN') }}",
+          projectId: "{{ env('FCM_PROJECT_ID') }}",
+          storageBucket: "{{ env('FCM_STORAGE_BUCKET') }}",
+          messagingSenderId: "{{ env('FCM_MSG_SENDER_ID') }}",
+          appId: "{{ env('FCM_APP_ID') }}",
+          measurementId: "{{ env('FCM_MEASUREMENT_ID') }}" 
+        //   apiKey: "AIzaSyCAuoguAAZC11MuSw97bZzBAGZU74ehMao",
+    // authDomain: "companionguru.firebaseapp.com",
+    // projectId: "companionguru",
+    // storageBucket: "companionguru.appspot.com",
+    // messagingSenderId: "1060044980690",
+    // appId: "1:1060044980690:web:65a2e5be5f7d691d5dc80b",
+    // measurementId: "G-BG041Q2YT8"
     };
 
     firebase.initializeApp(firebaseConfig);

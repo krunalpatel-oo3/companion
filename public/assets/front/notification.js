@@ -28,11 +28,12 @@ $(document).ready(function () {
 
 /* setting timepicker */
 $(document).ready(function () {
-    $("#date_time").timepicker({
-        'timeFormat': 'H:i a',
-        'step': function(i) {
-            return (i%2) ? 15 : 45;
-        }
+    $('#date_time').mdtimepicker({
+        timeFormat: 'hh:mm:ss.000', // format of the time value (data-time attribute)
+        format: 'hh:mm tt',    // format of the input value
+        readOnly: true,       // determines if input is readonly
+        hourPadding: false,
+        theme: 'blue',
     });
 });
 

@@ -7,7 +7,7 @@ use DB;
 use App\Models\front\Notification;
 use Kutia\Larafirebase\Facades\Larafirebase;
 
-class NotificationSilentMobile extends Command
+class NotificationAleart extends Command
 {
     /**
      * The name and signature of the console command.
