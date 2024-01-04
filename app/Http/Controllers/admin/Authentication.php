@@ -42,11 +42,11 @@ class Authentication extends Controller
 
     public function test_cron(){
 
-        $FcmToken = 'fb3n0ZPG61dq9rSXBdtaSg:APA91bHWReZBY2WwQ3K8N0O0b3Yh9W7DDP_D9QA1znfHsDJ4DFJ4pKSWNkyCDpTn1HzaOwswrC184Ih9_TdZqYZ-HiilzIZ87k9bs2B16-ZRsAt7DTTj5OLz2gp7XsyX6yIlY75mA403';
+        // $FcmToken = 'fb3n0ZPG61dq9rSXBdtaSg:APA91bHWReZBY2WwQ3K8N0O0b3Yh9W7DDP_D9QA1znfHsDJ4DFJ4pKSWNkyCDpTn1HzaOwswrC184Ih9_TdZqYZ-HiilzIZ87k9bs2B16-ZRsAt7DTTj5OLz2gp7XsyX6yIlY75mA403';
         
-        $result = Larafirebase::withTitle('Krunal Notification K1.')
-            ->withBody('This is for the testing.')
-            ->sendMessage($FcmToken);
+        // $result = Larafirebase::withTitle('Krunal Notification K1.')
+        //     ->withBody('This is for the testing.')
+        //     ->sendMessage($FcmToken);
     
 
         $newTime = strtotime('-15 minutes');
