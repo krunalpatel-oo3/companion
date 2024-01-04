@@ -41,18 +41,7 @@ class Authentication extends Controller
     }
 
     public function test_cron(){
-
-        // $FcmToken = 'fQCnOpETbJJJXEdz4-KRYK:APA91bHQHpqtP5g8_SrnPIYXV_D-cJ5DsZIAxtvskBjthklrzLsPRgQtnnm160cbT87xQhkRBlrThy1jvQMiWNnNPyseOFFFKnFie_sLYTRVT2tNNMVNBWvM-qH4acK1GFQ-exd4yRPF';
         
-        // $result = Larafirebase::withTitle('Krunal Notification K1.')
-        //     ->withBody('This is for the testing.')
-        //     ->sendMessage($FcmToken);
-    
-
-        // $newTime = strtotime('-15 minutes');
-        // // $notifications = Notification::select('title','description','description','fcm_token')->where('time', '>',  date('H:i', $newTime))->where('time', '<', date('H:i'))->get();
-        // $notifications = Notification::select('title','description','description','fcm_token')->whereBetween('time', [ date('H:i', $newTime),  date('H:i')])->get();
-        // dd($notifications);
         \Artisan::call('schedule:run');
     }
 

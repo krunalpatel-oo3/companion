@@ -28,7 +28,7 @@ class NotificationAleart extends Command
      */
     public function handle()
     {
-        $newTime = strtotime('-15 minutes');
+        $newTime = strtotime('-5 minutes');
         
         // $notifications = Notification::select('title','description','description','fcm_token')->where('time', '>',  date('H:i', $newTime))->where('time', '<', date('H:i'))->get();
         $notifications = Notification::select('title','description','fcm_token')->whereBetween('time', [ date('H:i', $newTime),  date('H:i')])->get();
