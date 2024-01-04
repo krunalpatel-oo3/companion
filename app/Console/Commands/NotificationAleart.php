@@ -31,8 +31,8 @@ class NotificationAleart extends Command
         $newTime = strtotime('-15 minutes');
         
         // $notifications = Notification::select('title','description','description','fcm_token')->where('time', '>',  date('H:i', $newTime))->where('time', '<', date('H:i'))->get();
-        $notifications = Notification::select('title','description','description','fcm_token')->whereBetween('time', [ date('H:i', $newTime),  date('H:i')])->get();
-        foreach ($notifications as $key => $notification) {
+        $notifications = Notification::select('title','description','fcm_token')->whereBetween('time', [ date('H:i', $newTime),  date('H:i')])->get();
+        foreach ($notifications as $key => $notification) { 
             
             Larafirebase::withTitle($notification->title)
             ->withBody($notification->description)
