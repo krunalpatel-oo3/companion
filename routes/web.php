@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Cron;
 use App\Http\Controllers\front\{Home, Notification};
 use App\Http\Controllers\admin\{Authentication, Dashboard};
 
@@ -17,10 +18,11 @@ use App\Http\Controllers\admin\{Authentication, Dashboard};
 
 Route::get('/', [Home::class, 'index'], 'index');
 Route::get('/home', [Home::class, 'index'], 'index')->name('home');
+
 //!! ************* Notification ********** !!
 Route::get('/notification-alert', [Notification::class, 'index'])->name('notification');
 Route::post('/notification-alert', [Notification::class, 'store'])->name('notification.store');
-Route::get('/cron_db', [Authentication::class, 'test_cron'])->name('test_cron');
+Route::get('/cron', [Cron::class, 'schedule_run'])->name('schedule_run');
 Route::get('/send-notification', [Authentication::class, 'sendNotification'], 'index')->name('sendNotification');
 
 //!! ************* Admin ************* !!
